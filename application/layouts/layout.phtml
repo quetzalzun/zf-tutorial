@@ -1,0 +1,13 @@
+<?php echo $this->doctype('XHTML1_TRANSITIONAL'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<?php echo $this->headMeta(); ?>
+	<?php echo $this->headTitle(); ?>
+</head>
+<body>
+<div id="content">
+	<h1><?php echo $this->escape($this->title); ?></h1>
+	<?php echo $this->layout()->content; ?>
+</div>
+</body>
+</html>
