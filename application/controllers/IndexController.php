@@ -25,7 +25,7 @@ class IndexController extends Zend_Controller_Action
 
 		$form = new Form_Album();
 		$form->submit->setLabel('Add');
-		$form->view->form = $form;
+		$this->view->form = $form;
 
 		if($this->getRequest()->isPost()) {
 			$formData = $this->getRequest()->getPost();
