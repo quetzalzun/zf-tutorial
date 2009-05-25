@@ -67,14 +67,29 @@ class IndexController extends Zend_Controller_Action
 			$id = $this->_getParam('id', 0);
 			if($id > 0) {
 				$albums = new Model_DbTable_Albums();
-				$form->populate($albums->gettAlbum($id));
+				$form->populate($albums->getAlbum($id));
 			}
 		}
     }
 
     public function deleteAction()
     {
-        // action body
+		$this->view->title = 'Delete album';
+		$this->view->headTitle($this->view->title, 'PREPEND');
+
+		if($this->getRequest()->isPost()) {
+			$del = $this->getRequest()->getPost('del');
+			if($del == 'Yes') {
+				$id = $this->getRequest()->getPost('id');
+				$albums = new Model_DbTable_Albums();
+				$albums->deleteAlbum($id);
+			}
+			$this->_redirect('/');
+		} else {
+			$id = $this->_getParam('id', 0);
+			$albums = new Model_DbTable_Albums();
+			$this->view->album = $albums->getAlbum($id);
+		}
     }
 
 }
