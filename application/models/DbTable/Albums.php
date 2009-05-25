@@ -20,11 +20,20 @@ class Model_DbTable_Albums extends Zend_Db_Table
 			'artist' => $artist,
 			'title'  => $title
 		);
+		$this->insert($data);
+	}
+
+	public function updateAlbum($id, $artist, $title)
+	{
+		$data = array(
+			'artist' => $artist,
+			'title'  => $title
+		);
 		$this->update($data, 'id = ' . (int)$id);
 	}
+
 	public function deleteAlbum($id)
 	{
 		$this->delete('id = '. $id);
 	}
-
 }

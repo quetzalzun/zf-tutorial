@@ -17,12 +17,12 @@ class Form_Album extends Zend_Form
 		       ->addFilter('StringTrim')
 		       ->addValidator('NotEmpty');
 
-		$tile = new Zend_Form_Element_Text('title');
-		$tile->setLabel('Title')
-		     ->setRequired(true)
-		     ->addFilter('StripTags')
-		     ->addFilter('StringTrim')
-		     ->addValidator('NotEmpty');
+		$title = new Zend_Form_Element_Text('title');
+		$title->setLabel('Title')
+		      ->setRequired(true)
+		      ->addFilter('StripTags')
+		      ->addFilter('StringTrim')
+		      ->addValidator('NotEmpty');
 
 		$submit = new Zend_Form_Element_Submit('submit');
 		$submit->setAttrib('id', 'submitButton');

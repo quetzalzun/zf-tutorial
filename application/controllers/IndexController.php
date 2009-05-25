@@ -15,7 +15,6 @@ class IndexController extends Zend_Controller_Action
 
 		$albums = new Model_DbTable_Albums();
 		$this->view->albums = $albums->fetchAll();
-        // action body
     }
 
     public function addAction()
